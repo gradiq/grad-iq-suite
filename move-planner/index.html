@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Move-Out / Move-In Planner · Grad-IQ</title>
+<meta name="description" content="A week-by-week moving countdown checklist, a rent-affordability check against your own limit, DIY vs hired mover quotes, a keep/sell/donate inventory and an apartment viewing scorecard with lease red flags.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/gradiq.css">
+</head>
+<body data-root="..">
+<main id="main" class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Life &amp; launch · Tool 21</p>
+    <h1>Move-out / move-in planner</h1>
+    <p class="lede">Moving for grad school or a first job? Count down week by week, check the rent against your own limit, compare doing it yourself with hiring movers, and score every apartment you see.</p>
+    <p class="source">Built around r/moving and r/Budget's top questions this month, such as <a href="https://www.reddit.com/r/moving/comments/1x7hiox/renting_a_haul_or_hiring_a_company/" target="_blank" rel="noopener">"Renting a U-Haul or hiring a company?"</a> and <a href="https://www.reddit.com/r/budget/comments/1x5c1nq/am_i_overthinking_a_1295month_apartment_on_a_65k/" target="_blank" rel="noopener">"Am I overthinking a $1,295/month apartment on a $65K salary?"</a>.</p>
+    <nav class="tabs no-print" aria-label="Sections"><a class="btn sm secondary" href="#cd-h">Countdown</a><a class="btn sm secondary" href="#rent-h">Rent check</a><a class="btn sm secondary" href="#quote-h">Mover quotes</a><a class="btn sm secondary" href="#inv-h">Inventory</a><a class="btn sm secondary" href="#view-h">Viewing scorecard</a></nav>
+  </div>
+  <div id="gq-toolbar"></div>
+
+  <section class="card lav" aria-labelledby="cd-h">
+    <div class="card-head"><h2 id="cd-h">Week-by-week countdown</h2><span class="pill ok" id="cd-pill"></span></div>
+    <div class="field-row"><label class="field">Moving day<input type="date" data-bind="moveDate" data-rerender></label></div>
+    <div class="countdown" id="cd-big"></div>
+    <div class="rows" id="weeks"></div>
+  </section>
+
+  <section class="card" aria-labelledby="rent-h">
+    <h2 id="rent-h">Rent-affordability check</h2>
+    <p class="small muted">There's no one rule that fits everyone, so set the limit you're comfortable with. The check uses your own numbers.</p>
+    <div class="field-row">
+      <label class="field">Monthly income<span class="money"><input type="number" inputmode="decimal" min="0" step="1" data-bind="rent.income" placeholder="0"></span></label>
+      <label class="field">Income is<select data-bind="rent.basis"><option value="take-home">Take-home (after tax)</option><option value="gross">Gross (before tax)</option></select></label>
+      <label class="field">Rent for the whole unit<span class="money"><input type="number" inputmode="decimal" min="0" step="1" data-bind="rent.rent" placeholder="0"></span></label>
+      <label class="field">Utilities &amp; internet (estimate)<span class="money"><input type="number" inputmode="decimal" min="0" step="1" data-bind="rent.util" placeholder="0"></span></label>
+      <label class="field">People splitting it<input type="number" inputmode="numeric" min="1" step="1" data-bind="rent.split" placeholder="1"></label>
+      <label class="field">My limit (% of income)<span class="hint">Your choice. Leave blank to just see the percentages.</span><input type="number" inputmode="decimal" min="1" max="100" step="1" data-bind="rent.limit" placeholder="Your %"></label>
+      <label class="field">Limit applies to<select data-bind="rent.limitOn"><option value="rent">Rent only</option><option value="total">Rent + utilities</option></select></label>
+    </div>
+    <div class="stat-grid" id="rent-stats"></div>
+    <div id="rent-note" style="margin-top:.7rem"></div>
+  </section>
+
+  <section class="card" aria-labelledby="quote-h">
+    <h2 id="quote-h">Mover quotes: DIY vs hired</h2>
+    <div class="grid two">
+      <div class="row-card" style="align-content:start"><h3 style="margin:0">Do it yourself</h3><div id="diy"></div><p style="margin:0"><strong>DIY total: <span id="diy-total"></span></strong></p></div>
+      <div class="row-card" style="align-content:start"><div class="card-head" style="margin:0"><h3 style="margin:0">Hired movers</h3><button type="button" class="btn sm no-print" data-action="addQuote">+ Quote</button></div><div class="rows" id="quotes"></div></div>
+    </div>
+    <div id="quote-verdict" style="margin-top:.8rem"></div>
+  </section>
+
+  <section class="card" aria-labelledby="inv-h">
+    <div class="card-head"><h2 id="inv-h">Keep / sell / donate inventory</h2><button type="button" class="btn sm no-print" data-action="addItem">+ Item</button></div>
+    <div class="stat-grid" id="inv-stats"></div>
+    <div class="rows" id="inv" style="margin-top:.8rem"></div>
+  </section>
+
+  <section class="card" aria-labelledby="view-h">
+    <div class="card-head"><h2 id="view-h">Apartment viewing scorecard</h2><button type="button" class="btn sm no-print" data-action="addApt">+ Apartment</button></div>
+    <p class="small muted">Score each place 1–5 while you're there, and tick any red flags. Red flags are things to ask about or walk away from, not legal advice. Ask your campus housing office or a local tenant resource about the rules where you live.</p>
+    <div class="rows" id="apts"></div>
+  </section>
+</main>
+<script src="../config.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>30-Day Reset Planner · Grad-IQ</title>
+<meta name="description" content="Fix one area of life per week: a screen-time log with swaps, a no-phone-in-bed streak, a 10-minute start timer with a mood check-in, a never-miss-twice habit grid and a weekly proof journal.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/gradiq.css">
+</head>
+<body data-root="..">
+<main id="main" class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Life &amp; launch · Tool 17</p>
+    <h1>30-day reset planner</h1>
+    <p class="lede">Stop trying to fix everything at once. Pick one area a week, start with just 10 minutes, and keep proof that you're changing. Missing a day is normal; the rule here is <strong>never miss twice</strong>.</p>
+    <p class="source">Inspired by r/getdisciplined's most-upvoted posts this month, including <a href="https://www.reddit.com/r/getdisciplined/comments/1xfn5pp/stop_trying_to_fix_every_part_of_your_life_at/" target="_blank" rel="noopener">"Pick one area per week"</a> and <a href="https://www.reddit.com/r/getdisciplined/comments/1x6j0at/method_procrastination_isnt_a_laziness_problem/" target="_blank" rel="noopener">"Procrastination isn't a laziness problem, it's a mood problem"</a>.</p>
+    <nav class="tabs no-print" aria-label="Sections"><a class="btn sm secondary" href="#focus-h">Focus weeks</a><a class="btn sm secondary" href="#timer-h">10-minute start</a><a class="btn sm secondary" href="#grid-h">Habit grid</a><a class="btn sm secondary" href="#screen-h">Screen time</a><a class="btn sm secondary" href="#proof-h">Proof journal</a></nav>
+  </div>
+  <div id="gq-toolbar"></div>
+
+  <section class="card lav" aria-labelledby="focus-h">
+    <div class="card-head"><h2 id="focus-h">One focus area per week</h2><span class="pill ok" id="daynum"></span></div>
+    <div class="field-row"><label class="field">Day 1 of my reset<input type="date" data-bind="start" data-rerender></label></div>
+    <p class="small muted">Five areas: sleep, phone, body, money and learning. Thirty days gives you four focus weeks plus a 2-day wrap-up, so save one area for your next reset.</p>
+    <div class="rows" id="weeks"></div>
+  </section>
+
+  <section class="card" aria-labelledby="timer-h">
+    <h2 id="timer-h">10-minute start</h2>
+    <p class="small">Can't start? Notice how you feel, then do just 10 minutes. When the timer ends you can stop, and it still counts.</p>
+    <label class="field">What I'll start on<input type="text" id="t-task" placeholder="e.g. read one page of chapter 3"></label>
+    <fieldset style="border:0;padding:0;margin:0 0 .6rem"><legend class="field" style="margin:0 0 .3rem">How I feel about starting</legend><div class="mood-row" id="mood-before"></div></fieldset>
+    <div class="timer-face" id="t-face" aria-live="off">10:00</div>
+    <div class="btn-row no-print" style="justify-content:center"><button type="button" class="btn primary" id="t-start" data-action="tStart">▶ Start 10 minutes</button><button type="button" class="btn secondary" data-action="tStop" id="t-stop">Stop</button><button type="button" class="btn ghost" data-action="notify">🔔 Allow pop-up alerts</button></div>
+    <div id="t-done" hidden></div>
+    <h3 style="margin-top:1rem">Start log</h3>
+    <div class="table-scroll"><table class="data" id="sessions"></table></div>
+  </section>
+
+  <section class="card" aria-labelledby="grid-h">
+    <div class="card-head"><h2 id="grid-h">Habit grid: never miss twice</h2><button type="button" class="btn sm no-print" data-action="addHabit">+ Habit</button></div>
+    <p class="small muted">Tap a day to mark it done. A missed day shows ✕. Two misses in a row turn red, so the day after a miss is the one to protect, even with a tiny version.</p>
+    <div id="twice"></div>
+    <div class="habit-scroll"><table class="habit-grid" id="grid"></table></div>
+    <div class="rows" id="habit-names" style="margin-top:.8rem"></div>
+  </section>
+
+  <section class="card" aria-labelledby="screen-h">
+    <div class="card-head"><h2 id="screen-h">Screen-time log</h2><span class="pill ok" id="bedstreak"></span></div>
+    <p class="small muted">Copy the screen-time number from your phone's settings each day, pick a replacement for the scroll urge, and tick the box if the phone stayed out of bed.</p>
+    <div class="rows" id="screen"></div>
+    <div class="stat-grid" id="screen-stats" style="margin-top:.8rem"></div>
+    <label class="field" style="margin-top:.8rem">My replacement activities (one per line)<textarea rows="3" data-bind="swaps" data-rerender></textarea></label>
+  </section>
+
+  <section class="card" aria-labelledby="proof-h">
+    <h2 id="proof-h">Weekly proof journal</h2>
+    <p class="small muted">Evidence beats motivation. Write down what you actually did, however small.</p>
+    <div class="rows" id="proof"></div>
+  </section>
+  <p class="small muted">This planner is a self-organizing tool, not medical or mental-health advice or treatment. If you're struggling, you can call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline, US).</p>
+</main>
+<script src="../config.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

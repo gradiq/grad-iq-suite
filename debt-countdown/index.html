@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Debt-Free Countdown · Grad-IQ</title>
+<meta name="description" content="Compare debt snowball and avalanche payoff dates for your credit cards and other non-student debt, try extra payments, track each balance on a thermometer and use a script to ask for a lower APR.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/gradiq.css">
+</head>
+<body data-root="..">
+<main id="main" class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Budget &amp; money · Tool 20</p>
+    <h1>Debt-free countdown</h1>
+    <p class="lede">For credit cards and other non-student debt. Enter what you owe, and see when you could be debt-free paying smallest-balance-first (snowball) or highest-rate-first (avalanche). Student loans? Use the <a href="../loan-repayment/">Loan repayment plan tracker</a>.</p>
+    <p class="notice small"><strong>All payoff dates and interest totals are estimates.</strong> They assume your APRs and minimums stay the same, no new charges, and interest added once a month at APR ÷ 12. Card issuers usually charge interest on your average daily balance, so your real numbers will differ a little. Check your statements.</p>
+    <nav class="tabs no-print" aria-label="Sections"><a class="btn sm secondary" href="#debts-h">My debts</a><a class="btn sm secondary" href="#cmp-h">Snowball vs avalanche</a><a class="btn sm secondary" href="#sim-h">Extra payments</a><a class="btn sm secondary" href="#thermo-h">Thermometers</a><a class="btn sm secondary" href="#script-h">Lower-APR script</a><a class="btn sm secondary" href="#ms-h">Milestones</a></nav>
+  </div>
+  <div id="gq-toolbar"></div>
+
+  <section class="card" aria-labelledby="debts-h">
+    <div class="card-head"><h2 id="debts-h">My debts</h2><button type="button" class="btn sm no-print" data-action="addDebt">+ Debt</button></div>
+    <p class="small muted">Use the numbers on your latest statement. "Starting balance" is what you owed when you started this plan (for the thermometers).</p>
+    <div class="rows" id="debts"></div>
+    <label class="field" style="margin-top:.9rem">What I can pay toward all debts each month<span class="hint">Must cover every minimum. Anything above the minimums goes to the target debt.</span><span class="money"><input type="number" inputmode="decimal" min="0" step="1" data-bind="budget" placeholder="0" data-rerender></span></label>
+    <div id="budget-note"></div>
+  </section>
+
+  <section class="card lav" aria-labelledby="cmp-h">
+    <h2 id="cmp-h">Snowball vs avalanche <span class="sample-tag">Estimate</span></h2>
+    <div class="cmp" id="cmp"></div>
+    <div class="table-scroll" style="margin-top:.8rem"><table class="data" id="order"></table></div>
+  </section>
+
+  <section class="card" aria-labelledby="sim-h">
+    <h2 id="sim-h">Extra-payment simulator <span class="sample-tag">Estimate</span></h2>
+    <div class="field-row">
+      <label class="field">Strategy<select data-bind="strategy" data-rerender><option value="avalanche">Avalanche (highest APR first)</option><option value="snowball">Snowball (smallest balance first)</option></select></label>
+      <label class="field">Extra each month<span class="money"><input type="number" inputmode="decimal" min="0" step="5" data-bind="extra" placeholder="0" id="extra-num"></span></label>
+    </div>
+    <input type="range" min="0" max="500" step="5" aria-label="Extra each month slider" id="extra-range" class="no-print" style="width:100%">
+    <div class="stat-grid" id="sim" style="margin-top:.7rem"></div>
+  </section>
+
+  <section class="card" aria-labelledby="thermo-h">
+    <h2 id="thermo-h">Balance thermometers</h2>
+    <div id="thermos"></div>
+  </section>
+
+  <section class="card" aria-labelledby="script-h">
+    <h2 id="script-h">Call script: ask for a lower APR</h2>
+    <div class="field-row">
+      <label class="field">My name<input type="text" data-bind="sc.name" placeholder="First name"></label>
+      <label class="field">Which card<select data-bind="sc.card" id="sc-card"></select></label>
+      <label class="field">Customer for<input type="text" data-bind="sc.years" placeholder="e.g. 3 years"></label>
+      <label class="field">Payment history<select data-bind="sc.ontime"><option value="always">Always on time</option><option value="mostly">Mostly on time lately</option><option value="skip">Don't mention</option></select></label>
+      <label class="field">Competing offer APR (optional)<input type="number" inputmode="decimal" min="0" step="0.01" data-bind="sc.offer" placeholder="%"></label>
+    </div>
+    <div class="script-box" id="script"></div>
+    <div class="btn-row no-print" style="margin-top:.6rem"><button type="button" class="btn sm secondary" data-action="copyScript">Copy script</button></div>
+    <ul class="small" style="margin-top:.8rem">
+      <li>Call the number on the back of the card. If the first answer is no, politely ask if someone else can review it.</li>
+      <li>Ask whether a new rate is permanent or promotional, and when it starts.</li>
+      <li>Ask whether the review involves a credit check.</li>
+      <li>Write down the date, the person's name and the answer below.</li>
+    </ul>
+    <p class="source">More on credit card rates and fees: <a href="https://www.consumerfinance.gov/consumer-tools/credit-cards/" target="_blank" rel="noopener">CFPB: Credit cards</a>.</p>
+    <div class="card-head" style="margin-top:1rem"><h3 style="margin:0">Call log</h3><button type="button" class="btn sm no-print" data-action="addCall">+ Call</button></div>
+    <div class="rows" id="calls"></div>
+  </section>
+
+  <section class="card mint" aria-labelledby="ms-h">
+    <div class="card-head"><h2 id="ms-h">Milestone log</h2><button type="button" class="btn sm no-print" data-action="addMs">+ Milestone</button></div>
+    <div class="btn-row no-print" id="ms-quick"></div>
+    <div class="rows" id="ms" style="margin-top:.7rem"></div>
+  </section>
+</main>
+<script src="../config.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

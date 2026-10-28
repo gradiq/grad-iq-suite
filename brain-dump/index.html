@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brain-Dump &amp; Do Planner · Grad-IQ</title>
+<meta name="description" content="An ADHD-friendly planner: one box to dump everything, quick sorting into Today, This week or Someday, an ADHD-tax tracker for bills, renewals and returns, visual time blocks with leave-by alerts and a morning routine with a bad-day version.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/gradiq.css">
+</head>
+<body data-root="..">
+<main id="main" class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Life &amp; launch · Tool 19</p>
+    <h1>Brain-dump &amp; do planner</h1>
+    <p class="lede">Get it out of your head first, sort it second. Built for brains that forget: one box for everything, countdowns for the deadlines that cost money, and leave-by alerts so you're not 17 minutes late again.</p>
+    <p class="source">Shaped by r/ADHD's top posts this month, including <a href="https://www.reddit.com/r/ADHD/comments/1wu4r6k/inattentive_adhders_what_is_the_adhd_tax_that_you/" target="_blank" rel="noopener">"What is the ADHD tax that you hate most"</a>, <a href="https://www.reddit.com/r/ADHD/comments/1x0e3bf/17_minutes_late_to_a_job_interview/" target="_blank" rel="noopener">"17 minutes late to a job interview"</a> and <a href="https://www.reddit.com/r/ADHD/comments/1x1bjn8/i_save_everything_for_later_and_never_look_at_any/" target="_blank" rel="noopener">"I save everything 'for later'…"</a>.</p>
+    <nav class="tabs no-print" aria-label="Sections"><a class="btn sm secondary" href="#dump-h">Brain dump</a><a class="btn sm secondary" href="#tax-h">ADHD tax</a><a class="btn sm secondary" href="#time-h">Time blocks</a><a class="btn sm secondary" href="#morn-h">Morning launch</a><a class="btn sm secondary" href="#later-h">Saved for later</a></nav>
+  </div>
+  <div id="gq-toolbar"></div>
+  <div id="leave-alert" hidden></div>
+
+  <section class="card lav" aria-labelledby="dump-h">
+    <h2 id="dump-h">Brain dump</h2>
+    <label class="field"><span>Type anything. One thing per line. Press Enter to add.</span><textarea id="dump" rows="3" placeholder="call dentist&#10;return the shoes&#10;email Prof. K about the deadline"></textarea></label>
+    <button type="button" class="btn primary no-print" data-action="dump">Add to inbox</button>
+    <h3 style="margin-top:1rem">Inbox <span class="pill" id="inbox-n"></span></h3>
+    <div class="rows" id="inbox"></div>
+  </section>
+
+  <section class="card" aria-labelledby="lists-h">
+    <h2 id="lists-h">Sorted</h2>
+    <div class="grid three" id="lists"></div>
+  </section>
+
+  <section class="card" aria-labelledby="tax-h">
+    <div class="card-head"><h2 id="tax-h">"ADHD tax" tracker</h2><button type="button" class="btn sm no-print" data-action="addTax">+ Deadline</button></div>
+    <p class="small muted">Bills, renewals, returns and anything else that costs money if you forget. Enter the fee or loss you'd face, then mark it done in time to count it as avoided.</p>
+    <div class="stat-grid" id="tax-stats"></div>
+    <div class="rows" id="tax" style="margin-top:.8rem"></div>
+  </section>
+
+  <section class="card" aria-labelledby="time-h">
+    <div class="card-head"><h2 id="time-h">Visual time blocks</h2><div class="btn-row no-print"><button type="button" class="btn sm" data-action="addBlock">+ Block</button><button type="button" class="btn sm ghost" data-action="notify">🔔 Allow pop-up alerts</button></div></div>
+    <div class="field-row"><label class="field">Day<input type="date" data-bind="day" data-rerender></label><label class="check" style="align-self:center"><input type="checkbox" data-bind="alerts">Leave-by alerts on (keep this tab open)</label></div>
+    <div class="timeline" id="tl" role="img" aria-label="Time blocks for the day"></div><div class="tl-axis" id="tl-axis"></div>
+    <p class="small muted">Leave-by = start time − travel − your buffer. Striped bars are travel and buffer time.</p>
+    <div class="rows" id="blocks"></div>
+  </section>
+
+  <section class="card mint" aria-labelledby="morn-h">
+    <div class="card-head"><h2 id="morn-h">Morning launch</h2><span class="pill ok" id="morn-prog"></span></div>
+    <div class="btn-row no-print" role="radiogroup" aria-label="Routine version" id="modes"></div>
+    <p class="small muted" style="margin-top:.5rem">Bad day? Switch to the short version: only the steps you've marked "bad-day step". It still counts.</p>
+    <div class="rows" id="steps"></div>
+    <button type="button" class="btn sm no-print" data-action="addStep" style="margin-top:.6rem">+ Step</button>
+  </section>
+
+  <section class="card" aria-labelledby="later-h">
+    <div class="card-head"><h2 id="later-h">Saved for later: weekly review</h2><span class="pill" id="review-pill"></span></div>
+    <p class="small muted">Tabs, links and notes you meant to get back to. Once a week, decide on each: act, schedule (move to This week) or delete.</p>
+    <div class="field-row"><label class="field">Paste a link or note<input type="text" id="later-in" placeholder="https://… or a note"></label></div>
+    <button type="button" class="btn sm primary no-print" data-action="addLater">Save for later</button>
+    <div class="rows" id="later" style="margin-top:.8rem"></div>
+    <button type="button" class="btn secondary no-print" data-action="reviewed" style="margin-top:.8rem">✓ I did my weekly review</button>
+  </section>
+  <p class="small muted">An organizing tool, not medical advice, diagnosis or treatment.</p>
+</main>
+<script src="../config.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

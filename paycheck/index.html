@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paycheck-to-Paycheck Planner · Grad-IQ</title>
+<meta name="description" content="Assign each bill to the paycheck that covers it, see a safe-to-spend number for the next 7 days, audit subscriptions, plan sinking funds and find help like SNAP and utility assistance.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/gradiq.css">
+</head>
+<body data-root="..">
+<main id="main" class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Budget &amp; money · Tool 16</p>
+    <h1>Paycheck-to-paycheck planner</h1>
+    <p class="lede">Not a monthly budget. This planner works one paycheck at a time: which bills each paycheck covers, and one number for what's safe to spend this week. <strong>42%</strong> of Gen Z say they live paycheck to paycheck, so you're far from alone.</p>
+    <p class="source">Source: <a href="https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/05/bofa-study-finds-fewer-gen-z-rely-on-family-for-financial-assist.html" target="_blank" rel="noopener">Bank of America Better Money Habits, May 19, 2026</a> (Ipsos survey of 1,133 Gen Z adults). For a category-by-category monthly plan, see the <a href="../stipend-budget/">Stipend budget planner</a>.</p>
+    <nav class="tabs no-print" aria-label="Sections"><a class="btn sm secondary" href="#sts-h">Safe to spend</a><a class="btn sm secondary" href="#cal-h">Paycheck calendar</a><a class="btn sm secondary" href="#bills-h">Bills</a><a class="btn sm secondary" href="#subs-h">Subscriptions</a><a class="btn sm secondary" href="#fund-h">Sinking funds</a><a class="btn sm secondary" href="#help-h">Help finder</a></nav>
+  </div>
+  <div id="gq-toolbar"></div>
+
+  <section class="card lav" aria-labelledby="sts-h">
+    <h2 id="sts-h">Safe to spend</h2>
+    <div class="stat-grid" id="sts"></div>
+    <div id="sts-note" style="margin-top:.8rem"></div>
+    <h3 style="margin-top:1rem">Log spending</h3>
+    <div class="field-row">
+      <label class="field">Date<input type="date" id="sp-date"></label>
+      <label class="field">Amount<span class="money"><input type="number" inputmode="decimal" min="0" step="0.01" id="sp-amt" placeholder="0"></span></label>
+      <label class="field">What for<input type="text" id="sp-note" placeholder="Groceries, gas, coffee…"></label>
+    </div>
+    <button type="button" class="btn primary no-print" data-action="addSpend">Log it</button>
+    <div class="table-scroll" style="margin-top:.8rem"><table class="data" id="spend"></table></div>
+  </section>
+
+  <section class="card" aria-labelledby="cal-h">
+    <div class="card-head"><h2 id="cal-h">Paycheck calendar</h2><div class="btn-row no-print"><button type="button" class="btn sm" data-action="addPay">+ Paycheck</button><button type="button" class="btn sm secondary" data-action="autoAssign">Auto-assign bills</button></div></div>
+    <div class="field-row">
+      <label class="field">How often you're paid<select data-bind="freq" data-rerender><option value="">Choose…</option><option value="weekly">Weekly</option><option value="biweekly">Every 2 weeks</option><option value="semimonthly">Twice a month</option><option value="monthly">Monthly</option><option value="irregular">Irregular</option></select></label>
+      <label class="field">Checking cushion to leave alone<span class="hint">Your own buffer so a surprise doesn't overdraw you.</span><span class="money"><input type="number" inputmode="decimal" min="0" step="1" data-bind="cushion" placeholder="0"></span></label>
+    </div>
+    <p class="small muted">Add each paycheck you expect, then give every bill to the paycheck that pays it. "Auto-assign" picks the last paycheck on or before each due date.</p>
+    <div class="rows" id="pays"></div>
+  </section>
+
+  <section class="card" aria-labelledby="bills-h">
+    <div class="card-head"><h2 id="bills-h">Bills</h2><div class="btn-row no-print"><button type="button" class="btn sm" data-action="addBill">+ Bill</button><button type="button" class="btn sm secondary" data-action="rollBills">Move all bills to next month</button></div></div>
+    <div class="rows" id="bills"></div>
+  </section>
+
+  <section class="card" aria-labelledby="subs-h">
+    <div class="card-head"><h2 id="subs-h">Subscription audit</h2><button type="button" class="btn sm no-print" data-action="addSub">+ Subscription</button></div>
+    <p class="small muted">Look at your bank and card statements and list every recurring charge. Decide: keep, pause or cancel.</p>
+    <div class="rows" id="subs"></div>
+    <div class="stat-grid" id="sub-stats" style="margin-top:.8rem"></div>
+  </section>
+
+  <section class="card" aria-labelledby="fund-h">
+    <div class="card-head"><h2 id="fund-h">Sinking funds</h2><button type="button" class="btn sm no-print" data-action="addFund">+ Fund</button></div>
+    <p class="small muted">Irregular costs you know are coming (car repairs, holidays, textbooks). Each fund is split across the paychecks you've listed before its date and set aside from them.</p>
+    <div class="rows" id="funds"></div>
+  </section>
+
+  <section class="card" aria-labelledby="help-h">
+    <div class="card-head"><h2 id="help-h">Help finder</h2><span class="pill lav" id="help-prog"></span></div>
+    <p class="small">Asking for help is normal and smart. Links go to official government sites and open in a new tab. Rules change, so check the linked page or your campus office.</p>
+    <div class="rows" id="help"></div>
+  </section>
+</main>
+<script src="../config.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

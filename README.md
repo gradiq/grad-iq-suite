@@ -2,7 +2,7 @@
 
 **Live demo:** https://saletra40-a11y.github.io/grad-iq-suite/
 
-This repository is the **demo-only** public site for Grad-IQ by IQ Learning. There are 14 small planners for money, study time, stress and support, and graduation. Every page runs on fictional **sample data**.
+This repository is the **demo-only** public site for Grad-IQ by IQ Learning. There are 21 small planners for money, study time, stress and support, graduation, and the life admin around it (jobs, habits, meals, moving). Every page runs on fictional **sample data**.
 
 - Nothing is saved. Edits last for the visit only and reset when you reload.
 - Export, Import and Clear are not in the demo. Print works and adds a "DEMO · SAMPLE DATA" watermark.
@@ -16,7 +16,7 @@ The full versions (which save to the buyer's own browser and include Export, Imp
 
 | Setting | What it does |
 |---|---|
-| `PRICES` | Price per product key: the 14 tool slugs plus `bundle-budget-money`, `bundle-study-time`, `bundle-stress-support`, `bundle-graduation-regalia`, `full-suite`. The "bought separately" totals and % off are calculated from these. |
+| `PRICES` | Price per product key: the 21 tool slugs plus `bundle-budget-money`, `bundle-study-time`, `bundle-stress-support`, `bundle-graduation-regalia`, `full-suite`. The "bought separately" totals and % off are calculated from these. |
 | `LAUNCH_PRICE_ACTIVE`, `LAUNCH_PRICE`, `LAUNCH_PRICE_ENDS` | Full-suite launch sale: $34.99 (regular $49.99 struck through) through `2026-10-30`, based on the visitor's local date. After that date, $49.99 shows automatically. |
 | `BUY_URLS` | Checkout link per product key. An empty value shows "Coming soon" with no link. |
 | `SELL_URL` | Where to offer a gown to the Grad-IQ buyback. An empty value shows "Contact Grad-IQ". |

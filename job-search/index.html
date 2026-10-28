@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Launch Pad Job Search Planner · Grad-IQ</title>
+<meta name="description" content="Track every application on a pipeline board with follow-up flags, tailor your resume to each job ad's keywords, build STAR stories and check postings for scams.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/gradiq.css">
+</head>
+<body data-root="..">
+<main id="main" class="wrap wide">
+  <div class="page-head">
+    <p class="eyebrow">Life &amp; launch · Tool 15</p>
+    <h1>Launch Pad job search planner</h1>
+    <p class="lede">Fewer, better applications, and nothing slips through the cracks. Only <strong>43%</strong> of the Class of 2026 had a job offer by graduation, so this planner helps you track every lead, follow up on time and tailor each application.</p>
+    <p class="source">Source: <a href="https://www.naceweb.org/about-us/press/2026/more-than-two-out-of-five-of-college-class-of-2026-had-a-job-offer-in-hand-by-graduation" target="_blank" rel="noopener">NACE 2026 Student Survey</a> (graduating seniors, published Jun 1, 2026).</p>
+    <nav class="tabs no-print" aria-label="Sections"><a class="btn sm secondary" href="#board-h">Pipeline</a><a class="btn sm secondary" href="#wk-h">Weekly targets</a><a class="btn sm secondary" href="#star-h">Interview prep</a><a class="btn sm secondary" href="#log-h">Post-interview log</a><a class="btn sm secondary" href="#scam-h">Scam check</a><a class="btn sm secondary" href="#exp-h">Experience builder</a></nav>
+  </div>
+  <div id="gq-toolbar"></div>
+
+  <section class="card" aria-labelledby="board-h">
+    <div class="card-head"><h2 id="board-h">Application pipeline</h2><span class="pill lav" id="due-pill"></span></div>
+    <div class="field-row">
+      <label class="field">Follow up after this many days with no contact<span class="hint">Your own rule. Cards turn amber when it's time.</span><input type="number" min="1" max="60" step="1" inputmode="numeric" placeholder="e.g. 7" data-bind="followDays" data-rerender></label>
+      <label class="field">Add a job: company<input type="text" id="new-co" autocomplete="off" placeholder="Company"></label>
+      <label class="field">Role<input type="text" id="new-role" autocomplete="off" placeholder="Job title"></label>
+    </div>
+    <div class="btn-row no-print" style="margin-bottom:.9rem"><button type="button" class="btn primary" data-action="addJob">+ Add to Saved</button></div>
+    <div class="board" id="board"></div>
+    <p class="small muted" style="margin-top:.6rem">Open "Tailor &amp; check" on any card to paste the job ad, pull its keywords (done on your device, nothing is uploaded) and run the scam check.</p>
+  </section>
+
+  <section class="card" aria-labelledby="wk-h">
+    <div class="card-head"><h2 id="wk-h">Weekly targets</h2><span class="pill ok" id="streak"></span></div>
+    <p class="small muted">Set your own targets. A week counts toward your streak when you hit every target you set.</p>
+    <div class="field-row">
+      <label class="field">Applications / week<input type="number" min="0" step="1" inputmode="numeric" data-bind="targets.apps" placeholder="Your target"></label>
+      <label class="field">Networking messages / week<input type="number" min="0" step="1" inputmode="numeric" data-bind="targets.net" placeholder="Your target"></label>
+      <label class="field">Skill-building hours / week<input type="number" min="0" step="0.5" inputmode="decimal" data-bind="targets.skill" placeholder="Your target"></label>
+    </div>
+    <h3 id="wk-label"></h3>
+    <div class="field-row" id="wk-fields"></div>
+    <div class="stat-grid" id="wk-stats" style="margin-top:.4rem"></div>
+  </section>
+
+  <section class="card" aria-labelledby="star-h">
+    <div class="card-head"><h2 id="star-h">Interview prep: STAR stories</h2><button type="button" class="btn sm no-print" data-action="addStory">+ Story</button></div>
+    <p class="small muted">Situation, Task, Action, Result. Write 5–8 stories once, then reuse them for most behavioral questions.</p>
+    <div class="rows" id="stories"></div>
+    <div class="card-head" style="margin-top:1.2rem"><h3 style="margin:0">Questions to ask them</h3><button type="button" class="btn sm no-print" data-action="addQ">+ Question</button></div>
+    <div class="rows" id="questions"></div>
+  </section>
+
+  <section class="card" aria-labelledby="log-h">
+    <div class="card-head"><h2 id="log-h">Post-interview log</h2><button type="button" class="btn sm no-print" data-action="addLog">+ Interview</button></div>
+    <div class="rows" id="ilog"></div>
+  </section>
+
+  <section class="card" aria-labelledby="scam-h">
+    <h2 id="scam-h">Is this job real? Scam check</h2>
+    <p>In a UK survey of Gen Z jobseekers, <strong>69%</strong> had applied for a role without checking it was genuine, and <strong>45%</strong> believe they've been targeted by a job scam. Each card on the board has its own scam check. The rules of thumb:</p>
+    <ul class="small">
+      <li>Find the job on the employer's own website, and contact them using details you found yourself.</li>
+      <li>Honest employers never ask you to pay for a job, training or equipment.</li>
+      <li>Never deposit a check and send part of it back, buy gift cards, or move money through your account for someone.</li>
+      <li>Be careful with ID, Social Security or bank details before a real interview.</li>
+      <li>Ignore unexpected job texts and WhatsApp or Telegram messages.</li>
+    </ul>
+    <p class="source">Sources: <a href="https://home.barclays/news/press-releases/20260/090/seven-in-10-gen-z-jobseekers-apply-without-checking-whether-role/" target="_blank" rel="noopener">Barclays Scams Bulletin, Sep 10, 2026</a> (UK adults, Opinium, Aug 2026); <a href="https://consumer.ftc.gov/articles/job-scams" target="_blank" rel="noopener">FTC: Job scams</a>. Report scams at <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noopener">ReportFraud.ftc.gov</a>.</p>
+  </section>
+
+  <section class="card" aria-labelledby="exp-h">
+    <div class="card-head"><h2 id="exp-h">No-experience experience builder</h2><button type="button" class="btn sm no-print" data-action="addExp">+ Experience</button></div>
+    <p>Experience counts even when it isn't a "real job". In ZipRecruiter's 2026 survey, <strong>81.6%</strong> of recent grads who worked during college were employed, compared with <strong>40.7%</strong> of those who didn't. List campus jobs, projects, volunteering and clubs, and turn each into a resume bullet.</p>
+    <p class="source">Source: <a href="https://www.ziprecruiter-research.org/economic-insights-research/grad-survey-2026" target="_blank" rel="noopener">ZipRecruiter Graduate Survey 2026</a> (1,500 recent grads, Jan–Mar 2026).</p>
+    <div class="rows" id="exps"></div>
+  </section>
+</main>
+<script src="../config.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

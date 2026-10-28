@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>$50-a-Week Meal Planner · Grad-IQ</title>
+<meta name="description" content="Plan a week of meals that builds the grocery list for you, compare cost per meal with takeout using your own prices, prep 3 proteins and 3 bases into 10 meals, and track your pantry and leftovers.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/gradiq.css">
+</head>
+<body data-root="..">
+<main id="main" class="wrap wide">
+  <div class="page-head">
+    <p class="eyebrow">Life &amp; launch · Tool 18</p>
+    <h1>$50-a-week meal planner</h1>
+    <p class="lede">Plan the week once, and the grocery list and its cost build themselves from your own prices. <strong>40%</strong> of Gen Z cut back on dining out last year to manage costs; this makes cooking the easy option.</p>
+    <p class="source">Source: <a href="https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/05/bofa-study-finds-fewer-gen-z-rely-on-family-for-financial-assist.html" target="_blank" rel="noopener">Bank of America Better Money Habits, May 19, 2026</a>. Prep format from r/MealPrepSunday's <a href="https://www.reddit.com/r/MealPrepSunday/comments/1x2yucd/for_beginners_burrito_bowls/" target="_blank" rel="noopener">"For Beginners: Burrito Bowls"</a>.</p>
+    <nav class="tabs no-print" aria-label="Sections"><a class="btn sm secondary" href="#cost-h">Budget</a><a class="btn sm secondary" href="#grid-h">Meal grid</a><a class="btn sm secondary" href="#list-h">Grocery list</a><a class="btn sm secondary" href="#prep-h">Prep mode</a><a class="btn sm secondary" href="#ing-h">Ingredients</a><a class="btn sm secondary" href="#pantry-h">Pantry &amp; leftovers</a></nav>
+  </div>
+  <div id="gq-toolbar"></div>
+
+  <section class="card lav" aria-labelledby="cost-h">
+    <h2 id="cost-h">This week's budget</h2>
+    <div class="field-row">
+      <label class="field">Weekly grocery budget<span class="money"><input type="number" inputmode="decimal" min="0" step="1" data-bind="budget" placeholder="50"></span></label>
+      <label class="field">What a takeout meal costs you<span class="hint">Your own typical total, with fees and tip.</span><span class="money"><input type="number" inputmode="decimal" min="0" step="0.01" data-bind="takeout" placeholder="0"></span></label>
+      <label class="field">Actually spent at the store<span class="hint">From your receipt, once you shop.</span><span class="money"><input type="number" inputmode="decimal" min="0" step="0.01" data-bind="spent" placeholder="0"></span></label>
+    </div>
+    <div class="stat-grid" id="cost-stats"></div>
+    <div id="cost-note" style="margin-top:.7rem"></div>
+  </section>
+
+  <section class="card" aria-labelledby="goal-h">
+    <h2 id="goal-h">Goal</h2>
+    <div class="btn-row" role="radiogroup" aria-label="Goal" id="goals"></div>
+    <p class="small muted" style="margin-top:.6rem" id="goal-note"></p>
+    <div class="kw-list" id="ideas"></div>
+    <p class="small muted" style="margin-top:.6rem">Ideas only, to make planning faster. This isn't nutrition, diet or medical advice. For health needs, talk to a doctor or registered dietitian.</p>
+  </section>
+
+  <section class="card" aria-labelledby="grid-h">
+    <div class="card-head"><h2 id="grid-h">Weekly meal grid</h2><div class="btn-row no-print"><button type="button" class="btn sm secondary" data-action="clearGrid">Clear grid</button></div></div>
+    <p class="small muted">Pick a recipe for each meal you'll cook. Leave a slot empty for leftovers or a meal out.</p>
+    <div class="meal-days" id="grid"></div>
+  </section>
+
+  <section class="card" aria-labelledby="list-h">
+    <div class="card-head"><h2 id="list-h">Grocery list</h2><span class="pill lav" id="list-pill"></span></div>
+    <p class="small muted">Built from the grid. Items you've marked "I have it" in Ingredients are left off. Packages are rounded up from how many meals each one covers.</p>
+    <div class="table-scroll"><table class="data" id="list"></table></div>
+  </section>
+
+  <section class="card mint" aria-labelledby="prep-h">
+    <h2 id="prep-h">Prep mode: 3 proteins + 3 bases = 10 meals</h2>
+    <p class="small">Cook three proteins and three bases on prep day, then mix and match. That's 9 combinations plus one "everything bowl", enough for weekday lunches and dinners.</p>
+    <div class="field-row" id="prep-pick"></div>
+    <button type="button" class="btn primary no-print" data-action="prep">Make my 10 meals and fill Mon–Fri</button>
+  </section>
+
+  <section class="card" aria-labelledby="ing-h">
+    <div class="card-head"><h2 id="ing-h">Ingredients &amp; prices</h2><button type="button" class="btn sm no-print" data-action="addIng">+ Ingredient</button></div>
+    <p class="small muted">Enter what you pay at your store. "Meals it covers" is how many meals one package makes, in your experience.</p>
+    <div class="rows" id="ings"></div>
+    <div class="card-head" style="margin-top:1.2rem"><h3 style="margin:0">Recipes</h3><button type="button" class="btn sm no-print" data-action="addRecipe">+ Recipe</button></div>
+    <div class="rows" id="recipes"></div>
+  </section>
+
+  <section class="card" aria-labelledby="pantry-h">
+    <div class="card-head"><h2 id="pantry-h">Pantry &amp; leftovers</h2><div class="btn-row no-print"><button type="button" class="btn sm" data-action="addPantry">+ Pantry item</button><button type="button" class="btn sm" data-action="addLeft">+ Leftovers</button></div></div>
+    <div id="eat-first"></div>
+    <h3>Pantry</h3>
+    <div class="rows" id="pantry"></div>
+    <h3 style="margin-top:1rem">Leftovers</h3>
+    <p class="small muted">Use the eat-by date you'd normally go by. For food-safety guidance, check FoodSafety.gov.</p>
+    <div class="rows" id="lefts"></div>
+  </section>
+</main>
+<script src="../config.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
