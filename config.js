@@ -41,6 +41,7 @@ window.GRADIQ_CONFIG = {
     "bundle-study-time": 19,
     "bundle-stress-support": 8,
     "bundle-graduation-regalia": 15,
+    "bundle-life-launch": 29,
     "full-suite": 49.99
   },
   BUY_URLS: {
@@ -69,6 +70,7 @@ window.GRADIQ_CONFIG = {
     "bundle-study-time": "",
     "bundle-stress-support": "",
     "bundle-graduation-regalia": "",
+    "bundle-life-launch": "",
     "full-suite": ""
   }
 };
