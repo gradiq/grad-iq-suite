@@ -1,6 +1,6 @@
 # Grad-IQ: planners for graduate students (public demo)
 
-**Live demo:** https://saletra40-a11y.github.io/grad-iq-suite/
+**Live demo:** https://gradiq.github.io/grad-iq-suite/
 
 This repository is the **demo-only** public site for Grad-IQ by IQ Learning. There are 21 small planners for money, study time, stress and support, graduation, and the life admin around it (jobs, habits, meals, moving). Every page runs on fictional **sample data**.
 
