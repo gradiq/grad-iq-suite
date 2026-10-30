@@ -17,7 +17,7 @@ The full versions (which save to the buyer's own browser and include Export, Imp
 | Setting | What it does |
 |---|---|
 | `PRICES` | Price per product key: the 21 tool slugs plus `bundle-budget-money`, `bundle-study-time`, `bundle-stress-support`, `bundle-graduation-regalia`, `bundle-life-launch`, `full-suite`. The "bought separately" totals and % off are calculated from these. |
-| `LAUNCH_PRICE_ACTIVE`, `LAUNCH_PRICE`, `LAUNCH_PRICE_ENDS` | Full-suite launch sale: $34.99 (regular $49.99 struck through) through `2026-10-30`, based on the visitor's local date. After that date, $49.99 shows automatically. |
+| `LAUNCH_PRICE_ACTIVE`, `LAUNCH_PRICE`, `LAUNCH_PRICE_ENDS` | Full-suite launch sale: $34.99 (regular $49.99 struck through) through `2026-12-01`, based on the visitor's local date. After that date, $49.99 shows automatically. |
 | `BUY_URLS` | Checkout link per product key. An empty value shows "Coming soon" with no link. |
 | `SELL_URL` | Where to offer a gown to the Grad-IQ buyback. An empty value shows "Contact Grad-IQ". |
 | `USED_PRICE_LOW/HIGH`, `BUYBACK_PRICE` | Grad-IQ once-used regalia price range ($250–$300) and buyback offer ($125, subject to condition check). |

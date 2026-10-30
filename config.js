@@ -12,9 +12,9 @@ window.GRADIQ_CONFIG = {
   USED_PRICE_LOW: 250,
   USED_PRICE_HIGH: 300,
   BUYBACK_PRICE: 125,
-  LAUNCH_PRICE_ACTIVE: false,
+  LAUNCH_PRICE_ACTIVE: true,
   LAUNCH_PRICE: 34.99,
-  LAUNCH_PRICE_ENDS: "2026-10-30",
+  LAUNCH_PRICE_ENDS: "2026-12-01",
   PRICES: {
     "stipend-budget": 9,
     "stipend-tax": 9,
