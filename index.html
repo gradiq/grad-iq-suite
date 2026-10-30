@@ -9,6 +9,7 @@
 </head>
 <body data-root=".">
 <main id="main" class="wrap">
+  <p class="device-banner" role="note"><strong>Works on Windows &amp; Apple</strong> · browser planners run on Windows, Mac and Chromebook; iPad planners open in GoodNotes (Android: GoodNotes or Xodo). <a href="#faq-device">What device do I need?</a></p>
   <section class="hero">
     <p class="eyebrow">Grad-IQ by IQ Learning</p>
     <h1>Planners for the real questions of grad school.</h1>
@@ -74,8 +75,21 @@
   <section class="group" id="products" aria-labelledby="g-products">
     <div class="group-head"><h2 id="g-products">Get the full version</h2><span class="muted small">One-time purchase · works offline · your data stays on your device</span></div>
     <p class="small">Full versions save your plan in your own browser and include Export (JSON and CSV), Import and Print. You download a folder and open <code>index.html</code>. There's no account and no subscription.</p>
-    <h3 style="margin-top:1rem">Full suite</h3>
-    <div class="product-grid">
+    <div class="filter-bar" id="device-filter" role="group" aria-label="Filter by device">
+      <span class="small"><strong>Shop by device:</strong></span>
+      <button type="button" class="chip" data-f="all" aria-pressed="true">All</button>
+      <button type="button" class="chip" data-f="tablet" aria-pressed="false">📱 Apple iPad &amp; Android tablet</button>
+      <button type="button" class="chip" data-f="everywhere" aria-pressed="false">💻 Works everywhere</button>
+    </div>
+    <h3 style="margin-top:1rem">Full suite &amp; Complete bundle</h3>
+    <div class="product-grid pgroup">
+      <article class="product" data-product="grad-iq-complete-bundle" data-tools="job-search,paycheck,reset-30,meal-plan,brain-dump,debt-countdown,move-planner,grad-stipend-budget,grad-resume-cv-kit,adhd-student-planner-goodnotes,goodnotes-semester-planner,goodnotes-meal-planner,goodnotes-stipend-budget" aria-labelledby="p-grad-iq-complete-bundle">
+        <h3 id="p-grad-iq-complete-bundle">Grad-IQ Complete Bundle</h3>
+        <p>Everything for life after the lab: the 7 Life &amp; Launch browser planners, the stipend workbook, the resume/CV kit and all 4 iPad planners.</p>
+        <div class="price-row"></div>
+        <div class="actions"></div>
+      </article>
+
       <article class="product feature" data-product="full-suite" data-tools="stipend-budget,stipend-tax,loan-gap,loan-repayment,emergency-fund,basic-needs,spaced-practice,deep-work,defense-countdown,admissions-tracker,stress-checkin,advisor-log,regalia-calculator,milestones" aria-labelledby="p-full-suite">
         <h3 id="p-full-suite">Grad-IQ Full Suite</h3>
         <p>All 14 core Grad-IQ grad-school planners plus a hub page, in one download.</p>
@@ -85,7 +99,7 @@
       </article>
     </div>
     <h3 style="margin-top:1.4rem">Bundles</h3>
-    <div class="product-grid">
+    <div class="product-grid pgroup">
       <article class="product" data-product="bundle-budget-money" data-tools="stipend-budget,stipend-tax,loan-gap,loan-repayment,emergency-fund,basic-needs" aria-labelledby="p-bundle-budget-money">
         <h3 id="p-bundle-budget-money">Grad-IQ Budget &amp; Money bundle</h3>
         <p>All six money planners: stipend budget, stipend taxes, 2026 loan caps, repayment switch, emergency fund, benefits.</p>
@@ -122,8 +136,50 @@
         <div class="actions"></div>
       </article>
     </div>
-    <h3 style="margin-top:1.4rem">Single tools</h3>
-    <div class="product-grid">
+        <h3 style="margin-top:1.4rem">iPad &amp; Android tablet planners <span class="muted small">(hyperlinked PDF)</span></h3>
+    <div class="product-grid pgroup">
+      <article class="product" data-product="adhd-student-planner-goodnotes" data-tools="" aria-labelledby="p-adhd-student-planner-goodnotes">
+        <h3 id="p-adhd-student-planner-goodnotes">Grad-IQ ADHD-Friendly Student Planner (iPad)</h3>
+        <p>Undated hyperlinked planner: brain dump, a &ldquo;just three&rdquo; daily page, 30-day tiny-habit reset, weekly review. Not medical advice.</p>
+        <div class="price-row"></div>
+        <div class="actions"></div>
+      </article>
+      <article class="product" data-product="goodnotes-semester-planner" data-tools="" aria-labelledby="p-goodnotes-semester-planner">
+        <h3 id="p-goodnotes-semester-planner">Grad-IQ Semester Planner (iPad)</h3>
+        <p>Semester overview, 16 weekly spreads, daily pages, assignment and exam trackers, grad-milestones page.</p>
+        <div class="price-row"></div>
+        <div class="actions"></div>
+      </article>
+      <article class="product" data-product="goodnotes-meal-planner" data-tools="" aria-labelledby="p-goodnotes-meal-planner">
+        <h3 id="p-goodnotes-meal-planner">Grad-IQ $50-a-Week Meal Planner (iPad)</h3>
+        <p>Grocery budget, weekly plan, priced grocery list, batch prep, pantry and leftovers.</p>
+        <div class="price-row"></div>
+        <div class="actions"></div>
+      </article>
+      <article class="product" data-product="goodnotes-stipend-budget" data-tools="" aria-labelledby="p-goodnotes-stipend-budget">
+        <h3 id="p-goodnotes-stipend-budget">Grad-IQ Stipend &amp; Paycheck Budget (iPad)</h3>
+        <p>Monthly budgets, a plan per stipend check, bill calendar, spending log, sinking funds, debt countdown.</p>
+        <div class="price-row"></div>
+        <div class="actions"></div>
+      </article>
+    </div>
+    <h3 style="margin-top:1.4rem">Office &amp; Google files <span class="muted small">(works everywhere)</span></h3>
+    <div class="product-grid pgroup">
+      <article class="product" data-product="grad-stipend-budget" data-tools="" aria-labelledby="p-grad-stipend-budget">
+        <h3 id="p-grad-stipend-budget">Grad-IQ Grad Stipend Budget workbook (.xlsx)</h3>
+        <p>Month-by-month stipend budget, what each check covers, and a debt-free countdown, formulas built in.</p>
+        <div class="price-row"></div>
+        <div class="actions"></div>
+      </article>
+      <article class="product" data-product="grad-resume-cv-kit" data-tools="" aria-labelledby="p-grad-resume-cv-kit">
+        <h3 id="p-grad-resume-cv-kit">Grad-IQ Resume, Academic CV &amp; Cover Letter Kit (.docx)</h3>
+        <p>Editable resume, academic/Ph.D. CV and cover letter templates plus a short how-to guide.</p>
+        <div class="price-row"></div>
+        <div class="actions"></div>
+      </article>
+    </div>
+    <h3 style="margin-top:1.4rem">Single browser planners</h3>
+    <div class="product-grid pgroup">
       <article class="product" data-product="stipend-budget" data-tools="" aria-labelledby="p-stipend-budget">
         <h3 id="p-stipend-budget">Grad-IQ Stipend budget planner</h3>
         <p>Needs vs wants, live remaining, one-page print.</p>
@@ -212,7 +268,7 @@
         <h3 id="p-job-search">Grad-IQ Launch Pad job search planner</h3>
         <p>Pipeline board with follow-up flags, keyword checklist, STAR stories, scam check.</p>
         <div class="price-row"></div>
-        <div class="actions"><a class="btn sm secondary" href="job-search/">Try the demo</a></div>
+        <div class="actions"><a class="btn sm secondary" href="stipend-budget/">Try the demo</a></div>
       </article>
       <article class="product" data-product="paycheck" data-tools="" aria-labelledby="p-paycheck">
         <h3 id="p-paycheck">Grad-IQ Paycheck-to-paycheck planner</h3>
@@ -262,6 +318,16 @@
     </ul>
   </section>
 
+  <section class="card soft" id="faq-device" aria-labelledby="faq-h" style="margin-top:2rem">
+    <h2 id="faq-h">What device do I need?</h2>
+    <dl class="faq">
+      <dt>Browser planners and bundles</dt><dd>A computer with a current browser (Chrome, Edge, Safari or Firefox) on Windows, Mac or Chromebook. You download a folder and open <code>index.html</code>. The online demos also open on phones and tablets.</dd>
+      <dt>iPad planners (hyperlinked PDF)</dt><dd>On iPad, import the PDF into GoodNotes. In GoodNotes, turn on Read-Only Mode and tap the tabs to jump between pages. On an Android tablet, use GoodNotes (Read-Only Mode) or Xodo (View mode). A stylus is nice but not required.</dd>
+      <dt>Stipend budget workbook (.xlsx)</dt><dd>Microsoft Excel on Windows, Mac, iPad or Android, or Google Sheets in any browser or the Sheets app.</dd>
+      <dt>Resume, CV &amp; cover letter kit (.docx)</dt><dd>Microsoft Word on Windows, Mac, iPad or Android, or Google Docs in any browser or the Docs app.</dd>
+    </dl>
+  </section>
+
   <section class="card soft" id="sources" aria-labelledby="src-h">
     <h2 id="src-h">Sources</h2>
     <p class="small">Facts in these tools come from Grad-IQ's Sep 30 and Oct 28, 2026 research scans of Reddit (10 education subreddits) and the open web (Academia Stack Exchange, surveys, official sources). Each tool cites its sources inline. Key sources:</p>
@@ -282,6 +348,7 @@
 </main>
 <script src="config.js"></script>
 <script src="assets/js/common.js"></script>
+<script src="assets/js/compat.js"></script>
 <script src="assets/js/products.js"></script>
 <script>GQ.buildChrome({ isHub: true });</script>
 </body>

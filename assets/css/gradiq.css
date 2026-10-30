@@ -368,3 +368,10 @@ table.data th button { font: inherit; text-transform: inherit; letter-spacing: i
 .log-row { display: grid; gap: .4rem .5rem; grid-template-columns: minmax(0, 1fr) 44px; align-items: center; background: var(--white); border-radius: var(--radius-sm); padding: .45rem; }
 .log-row > .log-text { grid-column: 1 / -1; grid-row: 2; }
 @media (min-width: 640px) { .log-row { grid-template-columns: 170px minmax(0, 1fr) 44px; } .log-row > .log-text { grid-column: 2; grid-row: 1; } }
+
+.device-banner{margin:.8rem 0 0;padding:.6rem 1rem;border-radius:var(--radius);background:var(--lavender-soft);color:var(--ink);font-size:.9rem;text-align:center}
+.filter-bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:1rem 0}
+.chip{font:inherit;font-size:.88rem;font-weight:600;min-height:44px;padding:.45rem .95rem;border-radius:999px;border:1px solid var(--lavender);background:var(--white);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:linear-gradient(135deg,var(--plum),var(--plum-2));color:#fff;border-color:transparent}
+.compat-badge{display:inline-block;font-size:.78rem;font-weight:600;color:var(--ok);background:var(--mint-soft);border-radius:10px;padding:.3rem .6rem;margin:.2rem 0 .5rem}
+.faq dt{font-weight:700;margin-top:.7rem}.faq dd{margin:.2rem 0 0;color:var(--ink-soft)}

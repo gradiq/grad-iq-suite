@@ -55,8 +55,10 @@
   /* ---------- chrome: header, demo banner, footer ---------- */
   function launchOn(C) { return !!(C.LAUNCH_PRICE_ACTIVE && C.LAUNCH_PRICE != null && (!C.LAUNCH_PRICE_ENDS || today() <= C.LAUNCH_PRICE_ENDS)); }
   window.GQ_launchOn = launchOn;
+  function completeOn(C) { return !!(C.COMPLETE_SALE_ACTIVE && C.COMPLETE_SALE_PRICE != null && (!C.COMPLETE_SALE_ENDS || today() <= C.COMPLETE_SALE_ENDS)); }
+  window.GQ_completeOn = completeOn;
   function buyButton(key, label) {
-    var C = window.GRADIQ_CONFIG || {}, pr = C.PRICES && C.PRICES[key], lp = key === "full-suite" && launchOn(C) ? C.LAUNCH_PRICE : null;
+    var C = window.GRADIQ_CONFIG || {}, pr = C.PRICES && C.PRICES[key], lp = key === "full-suite" && launchOn(C) ? C.LAUNCH_PRICE : key === "grad-iq-complete-bundle" && completeOn(C) ? C.COMPLETE_SALE_PRICE : null;
     var u = safeUrl(BUY[key] || ""), fp = function (n) { return "$" + (Math.round(n) === +n ? String(+n) : (+n).toFixed(2)); }, tag = pr != null ? '<span class="price-tag"><strong>' + fp(lp != null ? lp : pr) + "</strong>" + (lp != null ? " <s>" + fp(pr) + "</s>" : "") + "</span> " : "";
     return tag + (u ? '<a class="btn sm buy-btn" href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(label || "Get the full version") + "</a>" : '<span class="pill soon" title="Checkout isn\'t open yet">Coming soon</span>');
   }

@@ -4,6 +4,8 @@
    LAUNCH_PRICE_ACTIVE / LAUNCH_PRICE / LAUNCH_PRICE_ENDS: full-suite launch sale. The sale price shows (with the
      regular price struck through) while ACTIVE is true and the visitor's local date is on or before ENDS (inclusive).
      After that date the hub goes back to the regular price automatically.
+   COMPLETE_SALE_ACTIVE / COMPLETE_SALE_PRICE / COMPLETE_SALE_ENDS: Complete Bundle sale, same rules (shows through
+     ENDS inclusive, i.e. until 11:59 PM local time on Nov 30; back to the regular price on Dec 1).
    BUY_URLS: checkout link per product key. Empty = show "Coming soon" (no link).
    SELL_URL: where students can offer their gown back to Grad-IQ. Empty = plain "Contact Grad-IQ" text. */
 window.GRADIQ_CONFIG = {
@@ -15,6 +17,9 @@ window.GRADIQ_CONFIG = {
   LAUNCH_PRICE_ACTIVE: true,
   LAUNCH_PRICE: 34.99,
   LAUNCH_PRICE_ENDS: "2026-12-01",
+  COMPLETE_SALE_ACTIVE: true,
+  COMPLETE_SALE_PRICE: 34.99,
+  COMPLETE_SALE_ENDS: "2026-11-30",
   PRICES: {
     "stipend-budget": 9,
     "stipend-tax": 9,
@@ -42,7 +47,14 @@ window.GRADIQ_CONFIG = {
     "bundle-stress-support": 8,
     "bundle-graduation-regalia": 15,
     "bundle-life-launch": 29,
-    "full-suite": 49.99
+    "full-suite": 49.99,
+    "grad-stipend-budget": 9,
+    "grad-resume-cv-kit": 14,
+    "adhd-student-planner-goodnotes": 12,
+    "goodnotes-semester-planner": 10,
+    "goodnotes-meal-planner": 10,
+    "goodnotes-stipend-budget": 10,
+    "grad-iq-complete-bundle": 49
   },
   BUY_URLS: {
     "stipend-budget": "",
@@ -71,6 +83,13 @@ window.GRADIQ_CONFIG = {
     "bundle-stress-support": "",
     "bundle-graduation-regalia": "",
     "bundle-life-launch": "",
-    "full-suite": ""
+    "full-suite": "",
+    "grad-stipend-budget": "",
+    "grad-resume-cv-kit": "",
+    "adhd-student-planner-goodnotes": "",
+    "goodnotes-semester-planner": "",
+    "goodnotes-meal-planner": "",
+    "goodnotes-stipend-budget": "",
+    "grad-iq-complete-bundle": ""
   }
 };
